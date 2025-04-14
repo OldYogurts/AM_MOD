@@ -11,10 +11,20 @@ from tkinter import ttk
 class AMP_MOD():
 
 	def __init__(self,t):
-		self.AM_amp = float(AM_AMP_ENTRY.get());
-		self.AC_amp = float(CARRIER_AMP_ENTRY.get());
-		self.AM_freq= float(AM_FREQ_ENTRY.get());
+
+		die(AM_AMP_ENTRY.get(),"Message amplitude is not a number")
+		self.AM_amp= float(AM_AMP_ENTRY.get())
+
+		die(CARRIER_AMP_ENTRY.get(),"Carrier amplitude is not a number")
+		self.AC_amp= float(CARRIER_AMP_ENTRY.get());
+
+		die(AM_FREQ_ENTRY.get(),"Message frequency is not a number")
+		self.AM_freq=float(AM_FREQ_ENTRY.get());
+
+
+		die(CARRIER_FREQ_ENTRY.get(),"Carrier frequency is not a number")
 		self.AC_freq= float(CARRIER_FREQ_ENTRY.get());
+
 		self.time = int(t);
 
 	def mes(self):
@@ -46,6 +56,8 @@ class AMP_MOD():
 		
 		time=[]
 		val_dict={0:(0,0)}
+		
+		die(TIME_ENTRY.get(),"Runtime given is not a number")
 		for t in range(int(TIME_ENTRY.get())*100):
 			time.append(t)
 			val_dict.update({t:(AMP_MOD(t).mes(),AMP_MOD(t).carrier(),AMP_MOD(t).mod(),AMP_MOD(t).demod())});
@@ -61,25 +73,25 @@ class AMP_MOD():
 		fig.subplots_adjust(hspace = 0.5,wspace = 1);
 		fig.subplots_adjust(hspace = 0.5);
 		ax1.plot(time,val_1,"b-",label="Message");
-		ax1.set_xlabel("Time")
-		ax1.set_title("Message");
+		ax1.set_xlabel("Time(ms)")
+		ax1.set_title("Message(V)");
 		ax1.grid(True);
 
 		ax2.plot(time,val_2,"b-",label="Carrier");
-		ax2.set_xlabel("Time")
-		ax2.set_title("Carrier");
+		ax2.set_xlabel("Time(ms)")
+		ax2.set_title("Carrier(V)");
 		ax2.grid(True);
 
 
 		ax3.plot(time,val_3,"r-",label="Modulated");
-		ax3.set_xlabel("Time")
-		ax3.set_title("AM");
+		ax3.set_xlabel("Time(ms)")
+		ax3.set_title("AM(V)");
 		ax3.grid(True);
 
 
 		ax4.plot(time,val_4,"r-",label="DeModulated");
-		ax4.set_xlabel("Time")
-		ax4.set_title("Demod");
+		ax4.set_xlabel("Time(ms)")
+		ax4.set_title("Demod(V)");
 		ax4.grid(True);
 
 
@@ -88,57 +100,58 @@ class AMP_MOD():
 
 
 
-
-
-def die():
-
-
-	
-
-window = tkinter.Tk();
-window.title("AMPLITUDE MODULATION VARIABLES");
-
-frame = tkinter.Frame(window);
-frame.pack();
-
-
-AM_MESSAGE_BOX =tkinter.LabelFrame(frame,text = "AMPLITUDE MODULATION");
-AM_MESSAGE_BOX.grid(row=0,column=0,padx=200,pady=100);
-
-# LABELS
-
-#box1=AM_MESSAGE_BOX.winfo_atom(AM_AMP_LABEL)
-
-
-AM_AMP_LABEL = tkinter.Label(AM_MESSAGE_BOX,text = "INSERT MESSAGE AMPLITUDE (V)").grid(row=0);
-AM_AMP_ENTRY= tkinter.Entry(AM_MESSAGE_BOX)
-AM_AMP_ENTRY.grid(row=1,column=0)
-
-AM_FREQ_LABEL =tkinter.Label(AM_MESSAGE_BOX,text = "INSERT MESSAGE FREQUENCY (Hz)").grid(row=2);
-AM_FREQ_ENTRY= tkinter.Entry(AM_MESSAGE_BOX)
-AM_FREQ_ENTRY.grid(row=3,column=0);
-
-
-CARRIER_AMP_LABEL = tkinter.Label(AM_MESSAGE_BOX,text = "INSERT CARRIER AMPLITUDE (V)").grid(row=4);
-CARRIER_AMP_ENTRY= tkinter.Entry(AM_MESSAGE_BOX)
-CARRIER_AMP_ENTRY.grid(row=5,column=0);
-
-
-CARRIER_FREQ_LABEL = tkinter.Label(AM_MESSAGE_BOX,text= "INSERT CARRIER FREQUENCY (Hz)").grid(row=6);
-CARRIER_FREQ_ENTRY= tkinter.Entry(AM_MESSAGE_BOX)
-CARRIER_FREQ_ENTRY.grid(row=7,column=0);
-
-TIME_LABEL = tkinter.Label(AM_MESSAGE_BOX,text ="TIME TO RUN (sec)").grid(row=8);
-TIME_ENTRY = tkinter.Entry(AM_MESSAGE_BOX)
-TIME_ENTRY.grid(row=9,column=0)
+def die(x,message):
+	if not (x.isdigit()):
+		tkinter.messagebox.showwarning(title="Error",message = message);
+		return 1
+	 	
+	return 0
 
 
 
-button = tkinter.Button(AM_MESSAGE_BOX,text="MODULATE AWAY",command=AMP_MOD.Run_mod);
-button.grid(row =10,column =0,padx=70,pady=80)
-window.mainloop();
+if __name__ == "__main__":
+	window = tkinter.Tk();
+	window.title("AMPLITUDE MODULATION VARIABLES");
+
+	frame = tkinter.Frame(window);
+	frame.pack();
+
+
+	AM_MESSAGE_BOX =tkinter.LabelFrame(frame,text = "AMPLITUDE MODULATION");
+	AM_MESSAGE_BOX.grid(row=0,column=0,padx=200,pady=100);
+
+	# LABELS
+
+	#box1=AM_MESSAGE_BOX.winfo_atom(AM_AMP_LABEL)
+
+
+	AM_AMP_LABEL = tkinter.Label(AM_MESSAGE_BOX,text = "INSERT MESSAGE AMPLITUDE (V)").grid(row=0);
+	AM_AMP_ENTRY= tkinter.Entry(AM_MESSAGE_BOX)
+	AM_AMP_ENTRY.grid(row=1,column=0)
 
 
 
+	AM_FREQ_LABEL =tkinter.Label(AM_MESSAGE_BOX,text = "INSERT MESSAGE FREQUENCY (Hz)").grid(row=2);
+	AM_FREQ_ENTRY= tkinter.Entry(AM_MESSAGE_BOX)
+	AM_FREQ_ENTRY.grid(row=3,column=0);
 
+
+	CARRIER_AMP_LABEL = tkinter.Label(AM_MESSAGE_BOX,text = "INSERT CARRIER AMPLITUDE (V)").grid(row=4);
+	CARRIER_AMP_ENTRY= tkinter.Entry(AM_MESSAGE_BOX)
+	CARRIER_AMP_ENTRY.grid(row=5,column=0);
+
+
+	CARRIER_FREQ_LABEL = tkinter.Label(AM_MESSAGE_BOX,text= "INSERT CARRIER FREQUENCY (Hz)").grid(row=6);
+	CARRIER_FREQ_ENTRY= tkinter.Entry(AM_MESSAGE_BOX)
+	CARRIER_FREQ_ENTRY.grid(row=7,column=0);
+
+	TIME_LABEL = tkinter.Label(AM_MESSAGE_BOX,text ="TIME TO RUN (sec)").grid(row=8);
+	TIME_ENTRY = tkinter.Entry(AM_MESSAGE_BOX)
+	TIME_ENTRY.grid(row=9,column=0)
+
+
+
+	button = tkinter.Button(AM_MESSAGE_BOX,text="MODULATE AWAY",command=AMP_MOD.Run_mod);
+	button.grid(row =10,column =0,padx=70,pady=80)
+	window.mainloop();
 
