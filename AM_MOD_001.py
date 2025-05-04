@@ -28,16 +28,17 @@ class AMP_MOD():
 		self.time = int(t);
 
 	def mes(self):
+		Fs = 1000
 		omeg_m  = 2*(np.pi)*self.AM_freq
-		x = omeg_m*(self.time/360)*0.0174
+		x = omeg_m*(self.time/Fs)
 		sig = self.AM_amp*mt.cos(x)
 		return sig;
 
 
 	def carrier(self):
-		
+		Fs = 1000
 		omeg_c=2*(np.pi)*self.AC_freq
-		x = omeg_c*(self.time/360)*0.0174
+		x = omeg_c*(self.time/Fs)
 		car = self.AC_amp*mt.cos(x)
 		return car;
 
@@ -58,7 +59,7 @@ class AMP_MOD():
 		val_dict={0:(0,0)}
 		
 		die(TIME_ENTRY.get(),"Runtime given is not a number")
-		for t in range(int(TIME_ENTRY.get())*100):
+		for t in range(int(TIME_ENTRY.get())*1000):
 			time.append(t)
 			val_dict.update({t:(AMP_MOD(t).mes(),AMP_MOD(t).carrier(),AMP_MOD(t).mod(),AMP_MOD(t).demod())});
 			
@@ -101,9 +102,9 @@ class AMP_MOD():
 
 
 def die(x,message):
-	if not (x.isdigit()):
-		tkinter.messagebox.showwarning(title="Error",message = message);
-		return 1
+	if (not x.isdigit() or float(x) < 1):
+		tkinter.messagebox.showwarning(title="Error",message = message);a
+		raise ValueError(message);
 	 	
 	return 0
 
