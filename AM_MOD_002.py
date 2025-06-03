@@ -12,10 +12,6 @@ class AMP_MOD():
 
 	def __init__(self,t):
 
-		# this is a Bug fix
-		self.AC_freq= float(CARRIER_FREQ_ENTRY.get());
-		self.message = MESSAGE_ENTRY.get();
-		self.time = int(t);
 	def mes(self):
 		Fs = 1000
 		omeg_m  = 2*(np.pi)*self.AM_freq
