@@ -14,6 +14,7 @@ class AMP_MOD():
 
 		die(AM_AMP_ENTRY.get(),"Message amplitude is not a number")
 		self.AM_amp= float(AM_AMP_ENTRY.get())
+		# small bug fix
 
 		die(CARRIER_AMP_ENTRY.get(),"Carrier amplitude is not a number")
 		self.AC_amp= float(CARRIER_AMP_ENTRY.get());
