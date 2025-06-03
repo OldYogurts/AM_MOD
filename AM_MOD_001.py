@@ -24,7 +24,7 @@ class AMP_MOD():
 		# CHANGE 1 
 		die(CARRIER_FREQ_ENTRY.get(),"Carrier frequency is not a number")
 		self.AC_freq= float(CARRIER_FREQ_ENTRY.get());
-
+		# change 2
 		self.time = int(t);
 
 	def mes(self):
