@@ -12,6 +12,7 @@ class AMP_MOD():
 
 	def __init__(self,t):
 a		CHANGE 1
+		ChANGE 2
 	def mes(self):
 		Fs = 1000
 		omeg_m  = 2*(np.pi)*self.AM_freq
