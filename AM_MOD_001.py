@@ -21,7 +21,7 @@ class AMP_MOD():
 		die(AM_FREQ_ENTRY.get(),"Message frequency is not a number")
 		self.AM_freq=float(AM_FREQ_ENTRY.get());
 
-
+		# CHANGE 1 
 		die(CARRIER_FREQ_ENTRY.get(),"Carrier frequency is not a number")
 		self.AC_freq= float(CARRIER_FREQ_ENTRY.get());
 
