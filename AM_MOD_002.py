@@ -14,20 +14,16 @@ class AMP_MOD():
 
 		die(AM_AMP_ENTRY.get(),"Message amplitude is not a number")
 		self.AM_amp= float(AM_AMP_ENTRY.get())
-			# change 1 
 		die(CARRIER_AMP_ENTRY.get(),"Carrier amplitude is not a number")
 		self.AC_amp= float(CARRIER_AMP_ENTRY.get());
-			# change 2
 		die(AM_FREQ_ENTRY.get(),"Message frequency is not a number")
 		self.AM_freq=float(AM_FREQ_ENTRY.get());
 		# small fix
-		# BUGFIX I WANT TO PUSH
 
 		die(CARRIER_FREQ_ENTRY.get(),"Carrier frequency is not a number")
 		self.AC_freq= float(CARRIER_FREQ_ENTRY.get());
 		self.message = MESSAGE_ENTRY.get();
 		self.time = int(t);
-		# another bug fix
 	def mes(self):
 		Fs = 1000
 		omeg_m  = 2*(np.pi)*self.AM_freq
