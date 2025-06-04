@@ -8,6 +8,10 @@ def myfunc() :
 	empty line
 
 
+def my_mom_is_fat():
+	print("FAT FAT");
+
+
 
 
 
