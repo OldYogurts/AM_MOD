@@ -3,10 +3,11 @@
 # THIS IS THE MASTER 
 	
 def myfunc() :
-	print("i am the master and a hotfix");
+	print("i am the master");
+
+	empty line
 
 
- 	raise Value_error;
 
 
 
