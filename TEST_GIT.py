@@ -2,5 +2,6 @@
 
 # THIS IS THE MASTER BRANCH and a hotfix
 
+# MADE A SECOND CHANGE TO MASTER AFTER THE HOTFIXE
 #fixed
 #fixed
