@@ -5,7 +5,7 @@
 def myfunc() :
 	print("i am the master");
 
-	empty line
+	if x == 0 : raise ValueError
 
 def myfunc2() :
 	print("i am the mastertoo");
