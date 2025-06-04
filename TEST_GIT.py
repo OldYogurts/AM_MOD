@@ -3,10 +3,9 @@
 # THIS IS THE MASTER 
 	
 def myfunc() :
-	print("i am the master");
-
-	empty line
-
+	print("DEVING");
+	DEVING 
+	Deving 
 def myfunc2() :
-	print("i am the mastertoo");
-	empty line
+	print(" master DEV" );
+	not empty
