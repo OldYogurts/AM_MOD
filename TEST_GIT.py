@@ -4,7 +4,6 @@
 	
 def myfunc() :
 	print("DEVING");
-	DEVING 
 	Deving 
 	if x == 0 : raise ValueError
 
