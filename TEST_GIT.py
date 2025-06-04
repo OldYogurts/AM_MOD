@@ -11,8 +11,5 @@ def myfunc() :
 def my_mom_is_fat():
 	print("FAT FAT");
 
-
-
-
-
-
+def FAT_AGAIN():
+	print("another dev stuff");
