@@ -3,9 +3,9 @@
 # THIS IS THE MASTER 
 	
 def myfunc() :
-	print("i am the master");
+	print("i am the master + hotfix");
 
-	empty line
+	empty line is_not empty
 
 
 def my_mom_is_fat():
