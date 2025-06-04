@@ -1,11 +1,13 @@
 
 
-# THIS IS THE MASTER hotfixed AND THEN WE DID SOME DEV
-# MORE DEV
+# THIS IS THE MASTER 
+	
+def myfunc() :
+	print("i am the master");
 
 
 
 
 
 
-# ADDED 1 LINE AT LINE 10 
+
